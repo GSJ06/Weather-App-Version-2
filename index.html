@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <!-- Link to a custom font stylesheet -->
     <link rel="stylesheet" href="/font/Rimouski.css">
+    <!-- Link to your main CSS stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Container div to hold the entire weather app -->
     <div class="container">
+        <!-- App title section -->
         <div class="app-title">
             <p>Weather</p>
+            <!-- Input field for location -->
             <input type="text" id="locationInput" placeholder="Enter location (e.g., London)">
+            <!-- Search button -->
             <button id="searchButton">Search</button>
         </div>
+        <!-- Notification section for displaying messages -->
         <div class="notification"></div>
+        <!-- Weather information container -->
         <div class="weather-container">
+            <!-- Weather icon section -->
             <div class="weather-icon">
                 <img src="icons/unknown.png" alt="" srcset="">
             </div>
+            <!-- Temperature value section -->
             <div class="temperature-value">
                 <p>- °<span>C</span></p>
             </div>
+            <!-- Temperature description section -->
             <div class="temperature-description">
                 <p>-</p>
             </div>
+            <!-- Location section -->
             <div class="location">
                 <p>-</p>
             </div>
         </div>
     </div>
+    <!-- Link to your JavaScript file -->
     <script src="app.js"></script>
 </body>
+
 </html>
