@@ -1,6 +1,6 @@
 // Constants
 const KELVIN = 273;
-const API_KEY = "2r2f242g2grg2rg2rg"; // Add your actual API key
+const API_KEY = ""; // Add your actual API key
 
 // DOM Elements
 const iconElement = document.querySelector(".weather-icon");
