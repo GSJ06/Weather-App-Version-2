@@ -5,6 +5,8 @@ const API_KEY = ""; // Add your actual API key
 // DOM Elements
 const iconElement = document.querySelector(".weather-icon");
 const tempElement = document.querySelector(".temperature-value p");
+const tempMinElement = document.querySelector("#temp-min");
+const tempMaxElement = document.querySelector("#temp-max");
 const descElement = document.querySelector(".temperature-description p");
 const locationElement = document.querySelector(".location p");
 const notificationElement = document.querySelector(".notification");
@@ -21,6 +23,16 @@ const weather = {
   iconId: "",
   city: "",
   country: "",
+  temp_max: {
+    value: undefined,
+    unit: "C", // Default unit
+  },
+  temp_min:{
+    value: undefined,
+    unit: "C", // Default unit
+  },
+  pressure:"",
+  humidity:"",
 };
 
 // Event listeners
@@ -76,9 +88,13 @@ function fetchWeatherData(api) {
     .then((response) => response.json())
     .then((data) => {
       weather.temperature.value = Math.floor(data.main.temp - KELVIN);
+      weather.temp_min.value = Math.floor(data.main.temp_min - KELVIN);
+      weather.temp_max.value = Math.floor(data.main.temp_max - KELVIN);
       weather.description = data.weather[0].description;
       weather.iconId = data.weather[0].icon;
       weather.city = data.name;
+      weather.humidity = data.humidity;
+      weather.pressure = data.pressure;
       weather.country = data.sys.country;
     })
     .then(() => {
@@ -93,6 +109,8 @@ function fetchWeatherData(api) {
 function displayWeather() {
   iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
   tempElement.innerHTML = `${weather.temperature.value}°<span>${weather.temperature.unit.toUpperCase()}</span>`;
+  tempMinElement.innerHTML = `Min: ${weather.temp_min.value}°<span>${weather.temperature.unit.toUpperCase()}</span>`;
+  tempMaxElement.innerHTML = `Max: ${weather.temp_max.value}°<span>${weather.temperature.unit.toUpperCase()}</span>`;
   descElement.innerHTML = weather.description;
   locationElement.innerHTML = `${weather.city}, ${weather.country}`;
 }

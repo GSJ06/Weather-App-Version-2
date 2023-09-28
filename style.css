@@ -7,7 +7,7 @@ body{
 }
 
 .container {
-    width: 300px;
+    width: 400px;
     background-color: #FFF;
     display: flex;
     margin: 0 auto;
@@ -17,8 +17,8 @@ body{
     margin-top: 150px;
 }
 
-.app-title {
-    width: 300px;
+.app-title,.app-footer {
+    width: 400px;
     /* height: 50px; */
     border-radius: 10px 10px 0 0;
     text-align: center;
@@ -47,13 +47,13 @@ body{
 }
 
 .weather-container{
-    width: 300px;
+    width: 400px;
     height: 260px;
     background-color: #F4F9FF;
 }
 
 .weather-icon{
-    width: 300px;
+    width: 400px;
     height: 128px;
 }
 
@@ -63,7 +63,7 @@ body{
 }
 
 .temperature-value{
-    width: 300px;
+    width: 400px;
     height:60px;
 }
 
