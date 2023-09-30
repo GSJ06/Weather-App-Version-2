@@ -14,7 +14,7 @@ body{
     border-radius: 10px;
     padding-bottom: 50px;
     flex-direction: column;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .app-title,.app-footer {
@@ -107,4 +107,19 @@ body{
     color: #293251;
     text-align: center;
     font-size: 0.8em;
+}
+#other_details{
+    display: inline-flex;
+}
+
+#other_details img {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    width: 14%;
+}
+#humidityText, #windText,.app-title p{
+    font-size: 35px;
+}
+#temp-min,#temp-max{
+    font-size: 25px;
 }

@@ -7,6 +7,8 @@ const iconElement = document.querySelector(".weather-icon");
 const tempElement = document.querySelector(".temperature-value p");
 const tempMinElement = document.querySelector("#temp-min");
 const tempMaxElement = document.querySelector("#temp-max");
+const humidityElement = document.querySelector("#humidity");
+const windspeedElement = document.querySelector("#windspeed");
 const descElement = document.querySelector(".temperature-description p");
 const locationElement = document.querySelector(".location p");
 const notificationElement = document.querySelector(".notification");
@@ -93,8 +95,9 @@ function fetchWeatherData(api) {
       weather.description = data.weather[0].description;
       weather.iconId = data.weather[0].icon;
       weather.city = data.name;
-      weather.humidity = data.humidity;
-      weather.pressure = data.pressure;
+      weather.humidity = data.main.humidity;
+      weather.pressure = data.main.pressure;
+      weather.wind = data.wind.speed;
       weather.country = data.sys.country;
     })
     .then(() => {
@@ -109,8 +112,10 @@ function fetchWeatherData(api) {
 function displayWeather() {
   iconElement.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
   tempElement.innerHTML = `${weather.temperature.value}°<span>${weather.temperature.unit.toUpperCase()}</span>`;
-  tempMinElement.innerHTML = `Min: ${weather.temp_min.value}°<span>${weather.temperature.unit.toUpperCase()}</span>`;
-  tempMaxElement.innerHTML = `Max: ${weather.temp_max.value}°<span>${weather.temperature.unit.toUpperCase()}</span>`;
+  tempMinElement.innerHTML = `L: ${weather.temp_min.value}°<span>${weather.temperature.unit.toUpperCase()}</span>`;
+  tempMaxElement.innerHTML = `H: ${weather.temp_max.value}°<span>${weather.temperature.unit.toUpperCase()}</span>`;
+  humidityElement.innerHTML = `<img src="icons/humidity.png"/>  <span id="humidityText">${weather.humidity} % </span><br><span>Humidity</span>`;
+  windspeedElement.innerHTML = `<img src="icons/wind.png"/>  <span id="windText">${weather.wind} </span><span id="unit">km/h </span><br><span>Wind</span>`;
   descElement.innerHTML = weather.description;
   locationElement.innerHTML = `${weather.city}, ${weather.country}`;
 }
